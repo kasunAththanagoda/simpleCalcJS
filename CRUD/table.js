@@ -36,3 +36,53 @@ const loadData=()=>{
         })
     });
 }
+
+
+const addData=()=>{
+    const newData={
+        albumId: 1,
+        id: 1,
+        thumbnailUrl: "https://via.placeholder.com/150/92c952",
+        title: "accusamus beatae ad facilis cum similique qui sunt",
+        url: "https://via.placeholder.com/600/92c952"
+    }
+
+    $.ajax({
+        url:'https://jsonplaceholder.typicode.com/photos',
+        method:'POST',
+        data:JSON.stringify(newData),
+        contentType:'application/json',
+        success:(response)=>{
+            console.log("data added successfully",response)
+        },
+        error:(err)=>{
+            console.log("error",err);
+        }
+    })
+}
+
+
+
+// update data
+const updateData=()=>{
+    let id=1
+    const newData={
+        albumId: 1,
+        thumbnailUrl: "https://via.placeholder.com/150/92c952",
+        title: "asd",
+        url: "https://via.placeholder.com/600/92c952"
+    }
+
+    $.ajax({
+        url:`https://jsonplaceholder.typicode.com/photos/${id}`,
+        method:'PUT',
+        data:JSON.stringify(newData),
+        contentType:'application/json',
+        success:(response)=>{
+            console.log("data updated successfully",response)
+        },
+        error:(err)=>{
+            console.log("error",err);
+        }
+    })
+}
